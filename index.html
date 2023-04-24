@@ -1,51 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=  , initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./style.css" media="screen">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
-    <script src="./script.js" defer></script>
-    <title>Calculadora de Custo-benefício</title>
-    <!--commit test-->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=  , initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./style.css" media="screen">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+  <script src="./script.js" defer></script>
+  <title>Calculadora de Custo-benefício</title>
+  <!--commit test-->
 </head>
+
 <body>
-    <header class="containerNamePage">
-        <div class="namePage">Calculadora de Custo-benefício</div>
-    </header>
-    <section class="containerBox">
-            <form class="containerInput">
-                <div class="descriptionContainer">
-                    <span class="description">Insira os valores para <br/> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; calcular</span>
-                </div>
-                <input required type="number" name="gasolineValue" id="gasolineValue" class="fuelValue" placeholder="Digite o valor da gasolina:">
-                <input required type="number" name="ethanolValue" id="ethanolValue" class="fuelValue" placeholder="Digite o  valor do etanol:">
-                <input type="submit" id="calcButton" class="calculateButton" value="Calcular">
-            </form>
-    </section>
-    <footer>
-        &copy; 2023 Gabriele Rockenbach
-    </footer>
-    <div class="modalContainer" id="modalGas">
-      <div class="modal">
-        <span>É melhor abastecer com gasolina!</span>
-        <button id="btnModal">Ok</button>
-      </div>  
-    </div>
-    <div class="modalContainer" id="modalEth">
-      <div class="modal">
-        <span>É melhor abastecer com etanol!</span>
-        <button id="btnModal">Ok</button>
+  <header class="containerNamePage">
+    <div class="namePage">Calculadora de Custo-benefício</div>
+  </header>
+  <section class="containerBox">
+    <form class="containerInput" onsubmit="validaCustoBeneficio(event)">
+      <div class="descriptionContainer">
+        <span class="description">Insira os valores para <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; calcular</span>
       </div>
+      <input required type="number" name="gasolineValue" id="gasolineValue" class="fuelValue"
+        placeholder="Digite o valor da gasolina:">
+      <input required type="number" name="ethanolValue" id="ethanolValue" class="fuelValue"
+        placeholder="Digite o  valor do etanol:">
+      <input type="submit" id="calcButton" class="calculateButton" value="Calcular">
+    </form>
+  </section>
+  <footer>
+    &copy; 2023 Gabriele Rockenbach
+  </footer>
+  <div class="modalContainer" id="modal">
+    <div class="modal">
+      <span class="titleModal">Titulo</span>
+      <button id="btnModal">Ok</button>
     </div>
-    <div class="modalContainer" id="modalBoth">
-      <div class="modal">
-        <span>Pode escolher! Os beneficios entre etanol e gasolina são os mesmos!</span>
-        <button id="btnModal">Ok</button>
-      </div>
-    </div>
+  </div>
 </body>
+
 </html>

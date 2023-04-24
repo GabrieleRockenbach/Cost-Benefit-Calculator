@@ -1,58 +1,28 @@
-var btn = document.querySelector("#calcButton");
+const btn = document.querySelector("#calcButton");
+const btnModal = document.querySelector("#btnModal");
+const modal = document.getElementById("modal");
+const modalTitle = document.querySelector(".titleModal");
 
-btn.addEventListener("click", function(e) {
+btnModal.addEventListener("click" , () => {
+   modal.style.display = "none";
+   document.getElementById("gasolineValue").value="";
+   document.getElementById("ethanolValue").value="";
+})
 
+//function clean()
+//Escrever a função dessa forma (função abaixo), tem o funcionamento igual da forma acima clean(), as duas formas são usadas em projetos.
+//Mas a abaixo é mais atual se chama Arrow function e é padrão em vários frameworks como react, por exemplo.
+const validaCustoBeneficio = (e) => {
    e.preventDefault();
 
-   const gasolineValue = document.querySelector("#gasolineValue");
-   var gValue = gasolineValue.value;
-   console.log(gValue);
+   const gasolineValue = document.querySelector("#gasolineValue").value;
+   const ethanolValue = document.querySelector("#ethanolValue").value;
+   const calcResult = ethanolValue / gasolineValue;
 
-   const ethanolValue = document.querySelector("#ethanolValue");
-   var eValue = ethanolValue.value;
-   console.log(eValue);
-
-   var calcResult = eValue / gValue;
-   console.log(calcResult);
-
-   var modalGas = document.getElementById("modalGas");
-   var modalEth = document.getElementById("modalEth");
-   var modalBoth = document.getElementById("modalBoth");
-
-   if (calcResult > 0.7){
-      modalGas.style.display = "flex";
-   }
-   else if (calcResult < 0.7){
-      modalEth.style.display = "flex";
-   }
-   else if (calcResult == 0.7) {
-      modalBoth.style.display = "flex";
-   }
+   modal.style.display = "flex" 
    
-   function clean(){
-      document.getElementById("gasolineValue").value="";
-      document.getElementById("ethanolValue").value="";
-   }
+   calcResult > 0.7 ? modalTitle.innerHTML = "É melhor abastecer com gasolina!"
+   : calcResult < 0.7 ? modalTitle.innerHTML = "É melhor abastecer com etanol!"
+   : calcResult == 0.7 ? modalTitle.innerHTML = "Pode escolher! Os beneficios entre etanol e gasolina são os mesmos!" : null
+}
 
-   var btnModal = document.querySelector("#btnModal");
-
-   btnModal.addEventListener("click" , function(){
-      modalEth.style.display = "none";
-      modalGas.style.display = "none";
-      modalBoth.style.display = "none";
-      clean();
-   })
-   modalGas.addEventListener("click" , function(){
-      modalGas.style.display = "none";
-      clean();
-   })
-   modalEth.addEventListener("click" , function(){
-      modalEth.style.display = "none";
-      clean();
-   })
-   modalBoth.addEventListener("click" , function(){
-      modalBoth.style.display = "none";
-      clean();
-   })
-
-})
